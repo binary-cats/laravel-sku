@@ -1,0 +1,64 @@
+{
+    "name": "binary-cats/laravel-sku",
+    "version": "1.0",
+    "description": "Generate SKUs for Eloquent models",
+    "keywords": [
+        "binary-cats",
+        "eloquent",
+        "laravel",
+        "sku"
+    ],
+    "homepage": "https://github.com/binary-cats/laravel-sku",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Cyrill Kalita",
+            "email": "cyrill.kalita@gmail.com",
+            "homepage": "https://github.com/binary-cats",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.2",
+        "illuminate/support": "^6.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^4.0",
+        "phpunit/phpunit": "^8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "BinaryCats\\Sku\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "BinaryCats\\Sku\\Tests\\": "tests"
+        }
+    },
+    "suggest": {
+
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit --color=always",
+        "check": [
+            "php-cs-fixer fix --ansi --dry-run --diff src",
+            "php-cs-fixer fix --ansi --dry-run --diff tests",
+            "phpcs -p --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 --report-width=200 --report-summary  --report-full src tests --standard=PSR2 -n",
+            "phpmd src,tests text ./phpmd.xml.dist"
+        ],
+        "fix": [
+            "php-cs-fixer fix --ansi"
+        ]
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "BinaryCats\\Sku\\SkuServiceProvider"
+            ]
+        }
+    }
+}
