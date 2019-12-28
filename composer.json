@@ -1,6 +1,5 @@
 {
     "name": "binary-cats/laravel-sku",
-    "version": "1.0",
     "description": "Generate SKUs for Eloquent models",
     "keywords": [
         "binary-cats",
