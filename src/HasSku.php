@@ -31,10 +31,9 @@ trait HasSku
      * Fetch SKU option
      *
      * @param  string $key
-     * @param  mixed  $default
      * @return mixed
      */
-    public function skuOption(string $key, $default = null)
+    public function skuOption(string $key)
     {
         return $this->skuOptions()->{$key};
     }

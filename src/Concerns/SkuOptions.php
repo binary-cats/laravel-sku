@@ -2,11 +2,13 @@
 
 namespace BinaryCats\Sku\Concerns;
 
+use BinaryCats\Sku\Exceptions\SkuException;
+use BinaryCats\Sku\Contracts\SkuOptions as SkuOptionsContract;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 
-class SkuOptions
+class SkuOptions implements SkuOptionsContract
 {
     /**
      * Set the field which is a base fo rthe SKU.
@@ -56,7 +58,7 @@ class SkuOptions
     public function __construct(array $config)
     {
         $this->from($config['source'])
-            ->to($config['field'])
+            ->target($config['field'])
             ->using($config['separator'])
             ->forceUnique($config['unique'])
             ->generateOnCreate($config['generate_on_create'])
@@ -68,7 +70,7 @@ class SkuOptions
      *
      * @return new instance
      */
-    public static function make() : self
+    public static function make() : SkuOptionsContract
     {
         return resolve(SkuOptions::class);
     }
@@ -79,7 +81,7 @@ class SkuOptions
      * @param  mixed $field
      * @return $this
      */
-    public function from($field) : self
+    public function from($field) : SkuOptionsContract
     {
         $this->source = Arr::wrap($field);
 
@@ -92,7 +94,7 @@ class SkuOptions
      * @param  mixed $field
      * @return $this
      */
-    public function to(string $field) : self
+    public function target(string $field) : SkuOptionsContract
     {
         $this->field = $field;
 
@@ -105,7 +107,7 @@ class SkuOptions
      * @param  boll $value
      * @return $this
      */
-    public function forceUnique(bool $value) : self
+    public function forceUnique(bool $value) : SkuOptionsContract
     {
         $this->unique = $value;
 
@@ -118,7 +120,7 @@ class SkuOptions
      * @param  string $separator
      * @return $this
      */
-    public function allowDuplicates() : self
+    public function allowDuplicates() : SkuOptionsContract
     {
         return $this->forceUnique(false);
     }
@@ -129,7 +131,7 @@ class SkuOptions
      * @param  string $separator
      * @return $this
      */
-    public function using(string $separator) : self
+    public function using(string $separator) : SkuOptionsContract
     {
         $this->separator = $separator;
 
@@ -139,10 +141,10 @@ class SkuOptions
     /**
      * Set the generateOnCreate value
      *
-     * @param  bool   $value
+     * @param  bool $value
      * @return $this
      */
-    public function generateOnCreate(bool $value) : self
+    public function generateOnCreate(bool $value) : SkuOptionsContract
     {
         $this->generateOnCreate = $value;
 
@@ -152,10 +154,10 @@ class SkuOptions
     /**
      * Set the generateOnUpdate value
      *
-     * @param  bool   $value
+     * @param  bool $value
      * @return $this
      */
-    public function refreshOnUpdate(bool $value) : self
+    public function refreshOnUpdate(bool $value) : SkuOptionsContract
     {
         $this->generateOnUpdate = $value;
 
@@ -167,7 +169,7 @@ class SkuOptions
      *
      * @param  string $property
      * @return mixed
-     * @throws InvalidArgumentException
+     * @throws BadSkuArgument
      */
     public function __get($property)
     {
@@ -175,6 +177,6 @@ class SkuOptions
             return $this->{$property};
         }
 
-        throw new \InvalidArgumentException("`{$property}` does not exist as a option", 500);
+        throw SkuException::invalidArgument("`{$property}` does not exist as a option", 500);
     }
 }

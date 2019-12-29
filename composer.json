@@ -44,10 +44,10 @@
             "php-cs-fixer fix --ansi --dry-run --diff src",
             "php-cs-fixer fix --ansi --dry-run --diff tests",
             "phpcs -p --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 --report-width=200 --report-summary  --report-full src tests --standard=PSR2 -n",
-            "phpmd src,tests text ./phpmd.xml.dist"
+            "phpmd src,tests text codesize,unusedcode,naming --ignore-violations-on-exit"
         ],
         "fix": [
-            "php-cs-fixer fix --ansi"
+            "phpcbf -p --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests"
         ]
     },
     "config": {

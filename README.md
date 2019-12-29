@@ -135,7 +135,7 @@ class Product extends Model
     {
         return SkuOptions::make()
             ->from(['label', 'another_field'])
-            ->to('arbitrary_sku_field_name')
+            ->target('arbitrary_sku_field_name')
             ->using('_')
             ->forceUnique(false)
             ->generateOnCreate(true)

@@ -24,10 +24,8 @@ class SkuServiceProvider extends ServiceProvider
                 'config'
             );
         }
-
         // Bind the Standard SKU Options
         $this->bindSkuOptions();
-
         // Extend Str with a sku() method
         Str::mixin(new SkuMacro);
     }
