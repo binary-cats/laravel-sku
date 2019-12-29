@@ -2,7 +2,6 @@
 
 namespace BinaryCats\Sku\Concerns;
 
-use BinaryCats\Sku\Concerns\SkuOptions;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
@@ -10,21 +9,21 @@ use Illuminate\Support\Str;
 class SkuGenerator implements Renderable
 {
     /**
-     * Model to generate SKUs from
+     * Model to generate SKUs from.
      *
      * @var Illuminate\Database\Eloquent\Model
      */
     protected $model;
 
     /**
-     * Shortcut to the SkuOptions
+     * Shortcut to the SkuOptions.
      *
      * @var BinaryCats\Sku\Concerns\SkuOptions
      */
     protected $options;
 
     /**
-     * Create new SKU Generator
+     * Create new SKU Generator.
      *
      * @param Illuminate\Database\Eloquent\Model $model
      */
@@ -35,7 +34,7 @@ class SkuGenerator implements Renderable
     }
 
     /**
-     * Render the SKU
+     * Render the SKU.
      *
      * @return string
      */
@@ -48,7 +47,7 @@ class SkuGenerator implements Renderable
     }
 
     /**
-     * Get the source fields for the SKU
+     * Get the source fields for the SKU.
      *
      * @return string
      */
@@ -63,14 +62,14 @@ class SkuGenerator implements Renderable
     }
 
     /**
-     * Make the SKU
+     * Make the SKU.
      *
      * @param  string  $source
      * @param  string  $separator
-     * @param  boolean $unique
+     * @param  bool $unique
      * @return string
      */
-    protected function makeSku(string  $source, string $separator, bool $unique = false) : string
+    protected function makeSku(string $source, string $separator, bool $unique = false) : string
     {
         // Make
         $sku = Str::sku($source, $separator);
@@ -83,7 +82,7 @@ class SkuGenerator implements Renderable
     }
 
     /**
-     * True if the value already exists in the DB
+     * True if the value already exists in the DB.
      *
      * @param  string $sku
      * @return bool
@@ -101,7 +100,7 @@ class SkuGenerator implements Renderable
     }
 
     /**
-     * Convert the Generator to String
+     * Convert the Generator to String.
      *
      * @return string
      */

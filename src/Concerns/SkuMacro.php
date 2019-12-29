@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 class SkuMacro
 {
     /**
-     * Sku generator mixin
+     * Sku generator mixin.
      *
      * @param  string $source
      * @param  string $separator

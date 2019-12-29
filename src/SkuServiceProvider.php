@@ -2,15 +2,15 @@
 
 namespace BinaryCats\Sku;
 
-use BinaryCats\Sku\Concerns\SkuOptions;
 use BinaryCats\Sku\Concerns\SkuMacro;
+use BinaryCats\Sku\Concerns\SkuOptions;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 
 class SkuServiceProvider extends ServiceProvider
 {
     /**
-     * Boot application services
+     * Boot application services.
      *
      * @return void
      */
@@ -41,7 +41,7 @@ class SkuServiceProvider extends ServiceProvider
     }
 
     /**
-     * Bind the SKU options
+     * Bind the SKU options.
      *
      * @return void
      */

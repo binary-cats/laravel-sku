@@ -3,16 +3,14 @@
 namespace BinaryCats\Sku\Tests;
 
 use Exception;
-use Illuminate\Foundation\Exceptions\Handler;
 use Illuminate\Contracts\Debug\ExceptionHandler;
+use Illuminate\Foundation\Exceptions\Handler;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
-use BinaryCats\Sku\SkuServiceProvider;
 
 class TestCase extends OrchestraTestCase
 {
     /**
-     * Set up the test
-     *
+     * Set up the test.
      */
     public function setUp(): void
     {
@@ -35,14 +33,13 @@ class TestCase extends OrchestraTestCase
     }
 
     /**
-     * Disable Exception Handling
+     * Disable Exception Handling.
      *
      * @return void
      */
     protected function disableExceptionHandling()
     {
-        $this->app->instance(ExceptionHandler::class, new class extends Handler
-        {
+        $this->app->instance(ExceptionHandler::class, new class extends Handler {
             public function __construct()
             {
             }

@@ -2,11 +2,10 @@
 
 namespace BinaryCats\Sku\Concerns;
 
-use BinaryCats\Sku\Exceptions\SkuException;
 use BinaryCats\Sku\Contracts\SkuOptions as SkuOptionsContract;
+use BinaryCats\Sku\Exceptions\SkuException;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
-use Illuminate\Support\Str;
 
 class SkuOptions implements SkuOptionsContract
 {
@@ -53,7 +52,7 @@ class SkuOptions implements SkuOptionsContract
     protected $generateOnUpdate;
 
     /**
-     * Create new class
+     * Create new class.
      */
     public function __construct(array $config)
     {
@@ -66,17 +65,17 @@ class SkuOptions implements SkuOptionsContract
     }
 
     /**
-     * Create a new instance of the class, with standard settings
+     * Create a new instance of the class, with standard settings.
      *
      * @return new instance
      */
     public static function make() : SkuOptionsContract
     {
-        return resolve(SkuOptions::class);
+        return resolve(self::class);
     }
 
     /**
-     * Set the source field
+     * Set the source field.
      *
      * @param  mixed $field
      * @return $this
@@ -89,7 +88,7 @@ class SkuOptions implements SkuOptionsContract
     }
 
     /**
-     * Set the destination field
+     * Set the destination field.
      *
      * @param  mixed $field
      * @return $this
@@ -102,7 +101,7 @@ class SkuOptions implements SkuOptionsContract
     }
 
     /**
-     * Set unique flag
+     * Set unique flag.
      *
      * @param  boll $value
      * @return $this
@@ -115,7 +114,7 @@ class SkuOptions implements SkuOptionsContract
     }
 
     /**
-     * Set the separator value
+     * Set the separator value.
      *
      * @param  string $separator
      * @return $this
@@ -126,7 +125,7 @@ class SkuOptions implements SkuOptionsContract
     }
 
     /**
-     * Set the separator value
+     * Set the separator value.
      *
      * @param  string $separator
      * @return $this
@@ -139,7 +138,7 @@ class SkuOptions implements SkuOptionsContract
     }
 
     /**
-     * Set the generateOnCreate value
+     * Set the generateOnCreate value.
      *
      * @param  bool $value
      * @return $this
@@ -152,7 +151,7 @@ class SkuOptions implements SkuOptionsContract
     }
 
     /**
-     * Set the generateOnUpdate value
+     * Set the generateOnUpdate value.
      *
      * @param  bool $value
      * @return $this
@@ -165,7 +164,7 @@ class SkuOptions implements SkuOptionsContract
     }
 
     /**
-     * Access protected properties
+     * Access protected properties.
      *
      * @param  string $property
      * @return mixed

@@ -3,7 +3,6 @@
 namespace BinaryCats\Sku\Concerns;
 
 use Illuminate\Database\Eloquent\Model;
-use BinaryCats\Sku\Concerns\SkuGenerator;
 
 class SkuObserver
 {
