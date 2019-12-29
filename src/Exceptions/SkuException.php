@@ -7,18 +7,18 @@ use Exception;
 class SkuException extends Exception
 {
     /**
-     * Invalid Argument
+     * Invalid Argument.
      *
      * @param  string $message
      * @return [type]
      */
-    public static function invalidArgument(string $message): SkuException
+    public static function invalidArgument(string $message): self
     {
         return new static($message);
     }
 
     /**
-     * Make the Exception renderable
+     * Make the Exception renderable.
      *
      * @param  Illuminate\Http\Request $request
      * @return Illuminate\Http\Response

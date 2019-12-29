@@ -8,7 +8,7 @@ use BinaryCats\Sku\Concerns\SkuOptions;
 trait HasSku
 {
     /**
-     * Boot the trait by adding observers
+     * Boot the trait by adding observers.
      *
      * @return void
      */
@@ -28,7 +28,7 @@ trait HasSku
     }
 
     /**
-     * Fetch SKU option
+     * Fetch SKU option.
      *
      * @param  string $key
      * @return mixed
@@ -39,7 +39,7 @@ trait HasSku
     }
 
     /**
-     * Unless the field is called something else, we can safely get the value from the attribute
+     * Unless the field is called something else, we can safely get the value from the attribute.
      *
      * @param  mixed $value
      * @return string
