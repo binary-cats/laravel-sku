@@ -38,7 +38,7 @@ class SkuGenerator implements Renderable
      *
      * @return string
      */
-    public function render() : string
+    public function render(): string
     {
         // Fetch the part that makes the initial source
         $source = $this->getSourceString();
@@ -51,7 +51,7 @@ class SkuGenerator implements Renderable
      *
      * @return string
      */
-    protected function getSourceString() : string
+    protected function getSourceString(): string
     {
         // fetch the source fields
         $source = $this->options->source;
@@ -69,7 +69,7 @@ class SkuGenerator implements Renderable
      * @param  bool $unique
      * @return string
      */
-    protected function makeSku(string $source, string $separator, bool $unique = false) : string
+    protected function makeSku(string $source, string $separator, bool $unique = false): string
     {
         // Make
         $sku = Str::sku($source, $separator);
@@ -87,7 +87,7 @@ class SkuGenerator implements Renderable
      * @param  string $sku
      * @return bool
      */
-    protected function exists(string $sku) : bool
+    protected function exists(string $sku): bool
     {
         // We need to exclude the current model
         $key = $this->model->getKey();

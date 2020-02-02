@@ -22,7 +22,7 @@ trait HasSku
      *
      * @return BinaryCats\Sku\SkuOptions
      */
-    public function skuOptions() : SkuOptions
+    public function skuOptions(): SkuOptions
     {
         return resolve(SkuOptions::class);
     }
