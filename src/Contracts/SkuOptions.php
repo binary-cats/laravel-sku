@@ -9,7 +9,7 @@ interface SkuOptions
      *
      * @return new instance
      */
-    public static function make() : self;
+    public static function make(): self;
 
     /**
      * Set the source field.
@@ -17,7 +17,7 @@ interface SkuOptions
      * @param  mixed $field
      * @return $this
      */
-    public function from($field) : self;
+    public function from($field): self;
 
     /**
      * Set the destination field.
@@ -25,7 +25,7 @@ interface SkuOptions
      * @param  mixed $field
      * @return $this
      */
-    public function target(string $field) : self;
+    public function target(string $field): self;
 
     /**
      * Set unique flag.
@@ -33,7 +33,7 @@ interface SkuOptions
      * @param  boll $value
      * @return $this
      */
-    public function forceUnique(bool $value) : self;
+    public function forceUnique(bool $value): self;
 
     /**
      * Set the separator value.
@@ -41,7 +41,7 @@ interface SkuOptions
      * @param  string $separator
      * @return $this
      */
-    public function allowDuplicates() : self;
+    public function allowDuplicates(): self;
 
     /**
      * Set the separator value.
@@ -49,7 +49,7 @@ interface SkuOptions
      * @param  string $separator
      * @return $this
      */
-    public function using(string $separator) : self;
+    public function using(string $separator): self;
 
     /**
      * Set the generateOnCreate value.
@@ -57,7 +57,7 @@ interface SkuOptions
      * @param  bool $value
      * @return $this
      */
-    public function generateOnCreate(bool $value) : self;
+    public function generateOnCreate(bool $value): self;
 
     /**
      * Set the generateOnUpdate value.
@@ -65,5 +65,5 @@ interface SkuOptions
      * @param  bool $value
      * @return $this
      */
-    public function refreshOnUpdate(bool $value) : self;
+    public function refreshOnUpdate(bool $value): self;
 }

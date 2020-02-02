@@ -1,6 +1,6 @@
 # Handle SKUs for your models
 
-Generate unique SKUs when saving any Eloquent model.
+Generate unique SKUs when saving any Eloquent model with support for Laravel 5.6, Laravel 6 and above.
 
 ```php
 $model = new EloquentModel();
@@ -90,7 +90,7 @@ return [
 ];
 ```
 
-Please note that the above set up expects you have an `sku` field in your model. If you plan to manually overwrite the values; please make sure to add this field to `fillable` array;
+Please note that the above set up expects you have an `sku` field in your model. If you plan to manually overwrite the values, please make sure to add this field to `fillable` array;
 
 ### Usage
 
@@ -109,7 +109,7 @@ class Product extends Model
 }
 ```
 
-Behind the scenes this will register an observe for the `sku` field, which will be generated every time you save the model.
+Behind the scenes this will register an observer for the `sku` field, which will be generated every time you save the model.
 
 ## Advanced usage
 

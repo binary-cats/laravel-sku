@@ -69,7 +69,7 @@ class SkuOptions implements SkuOptionsContract
      *
      * @return new instance
      */
-    public static function make() : SkuOptionsContract
+    public static function make(): SkuOptionsContract
     {
         return resolve(self::class);
     }
@@ -80,7 +80,7 @@ class SkuOptions implements SkuOptionsContract
      * @param  mixed $field
      * @return $this
      */
-    public function from($field) : SkuOptionsContract
+    public function from($field): SkuOptionsContract
     {
         $this->source = Arr::wrap($field);
 
@@ -93,7 +93,7 @@ class SkuOptions implements SkuOptionsContract
      * @param  mixed $field
      * @return $this
      */
-    public function target(string $field) : SkuOptionsContract
+    public function target(string $field): SkuOptionsContract
     {
         $this->field = $field;
 
@@ -106,7 +106,7 @@ class SkuOptions implements SkuOptionsContract
      * @param  boll $value
      * @return $this
      */
-    public function forceUnique(bool $value) : SkuOptionsContract
+    public function forceUnique(bool $value): SkuOptionsContract
     {
         $this->unique = $value;
 
@@ -119,7 +119,7 @@ class SkuOptions implements SkuOptionsContract
      * @param  string $separator
      * @return $this
      */
-    public function allowDuplicates() : SkuOptionsContract
+    public function allowDuplicates(): SkuOptionsContract
     {
         return $this->forceUnique(false);
     }
@@ -130,7 +130,7 @@ class SkuOptions implements SkuOptionsContract
      * @param  string $separator
      * @return $this
      */
-    public function using(string $separator) : SkuOptionsContract
+    public function using(string $separator): SkuOptionsContract
     {
         $this->separator = $separator;
 
@@ -143,7 +143,7 @@ class SkuOptions implements SkuOptionsContract
      * @param  bool $value
      * @return $this
      */
-    public function generateOnCreate(bool $value) : SkuOptionsContract
+    public function generateOnCreate(bool $value): SkuOptionsContract
     {
         $this->generateOnCreate = $value;
 
@@ -156,7 +156,7 @@ class SkuOptions implements SkuOptionsContract
      * @param  bool $value
      * @return $this
      */
-    public function refreshOnUpdate(bool $value) : SkuOptionsContract
+    public function refreshOnUpdate(bool $value): SkuOptionsContract
     {
         $this->generateOnUpdate = $value;
 

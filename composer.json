@@ -19,11 +19,11 @@
     ],
     "require": {
         "php": "^7.2",
-        "illuminate/support": "^6.0"
+        "illuminate/support": "~5.6|^6.0"
     },
     "require-dev": {
-        "orchestra/testbench": "^4.0",
-        "phpunit/phpunit": "^8.2"
+        "orchestra/testbench": "^3.6|^4.0",
+        "phpunit/phpunit": "^7.0|^8.2"
     },
     "autoload": {
         "psr-4": {
@@ -36,7 +36,7 @@
         }
     },
     "suggest": {
-
+        "binary-cats/laravel-mailgun-webhooks": "Handle Mailgun webhooks in your Laravel application"
     },
     "scripts": {
         "test": "vendor/bin/phpunit --color=always",

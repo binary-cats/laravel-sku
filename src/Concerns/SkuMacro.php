@@ -14,7 +14,7 @@ class SkuMacro
      * @param  string $separator
      * @return Closure
      */
-    public function sku() : Closure
+    public function sku(): Closure
     {
         return function ($source, $separator = null) {
             $separator = $separator ?: config('laravel-sku.default.separator');
