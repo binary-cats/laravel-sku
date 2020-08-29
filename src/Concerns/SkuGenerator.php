@@ -2,8 +2,8 @@
 
 namespace BinaryCats\Sku\Concerns;
 
-use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Contracts\Support\Jsonable;
+use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
