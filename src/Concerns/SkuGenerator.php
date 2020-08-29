@@ -3,10 +3,11 @@
 namespace BinaryCats\Sku\Concerns;
 
 use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Contracts\Support\Jsonable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
-class SkuGenerator implements Renderable
+class SkuGenerator implements Jsonable, Renderable
 {
     /**
      * Model to generate SKUs from.
@@ -105,6 +106,17 @@ class SkuGenerator implements Renderable
      * @return string
      */
     public function __toString()
+    {
+        return $this->render();
+    }
+
+    /**
+     * Convert the object to its JSON representation.
+     *
+     * @param  int  $options
+     * @return string
+     */
+    public function toJson($options = 0)
     {
         return $this->render();
     }

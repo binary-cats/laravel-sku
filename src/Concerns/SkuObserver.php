@@ -7,27 +7,28 @@ use Illuminate\Database\Eloquent\Model;
 class SkuObserver
 {
     /**
-     * Handle the "creating" mmodel.
+     * Handle model "creating" event.
      *
      * @param  \Illuminate\Database\Eloquent\Model $model
      * @return void
      */
-    public function creating(Model $model)
+    public function creating(Model $model): void
     {
+        // Name of the field to store the SKU
         $field = $model->skuOption('field');
-
+        // Set the value
         if ($model->skuOption('generateOnCreate')) {
-            $model->setAttribute($field, new SkuGenerator($model));
+            $model->setAttribute($field, (string) new SkuGenerator($model));
         }
     }
 
     /**
-     * Handle the "udating" mmodel.
+     * Handle model "updating" event.
      *
      * @param  \Illuminate\Database\Eloquent\Model $model
      * @return void
      */
-    public function updating(Model $model)
+    public function updating(Model $model): void
     {
         // Name of the field to store the SKU
         $field = $model->skuOption('field');
@@ -39,7 +40,7 @@ class SkuObserver
         $source = $model->skuOption('source');
         // if we are requested to generate and those fields are dirty
         if ($model->skuOption('generateOnUpdate') and $model->isDirty($source)) {
-            $model->setAttribute($field, new SkuGenerator($model));
+            $model->setAttribute($field, (string) new SkuGenerator($model));
         }
     }
 }
