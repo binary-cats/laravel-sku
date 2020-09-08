@@ -31,9 +31,9 @@ class TestCase extends OrchestraTestCase
         $app['config']->set('database.default', 'sqlite');
         $app['config']->set(
             'database.connections.sqlite', [
-            'driver'   => 'sqlite',
-            'database' => ':memory:',
-            'prefix'   => '',
+                'driver'   => 'sqlite',
+                'database' => ':memory:',
+                'prefix'   => '',
             ]
         );
     }
@@ -64,7 +64,7 @@ class TestCase extends OrchestraTestCase
     }
 
     /**
-     * Set up the database by creating a dummy models table
+     * Set up the database by creating a dummy models table.
      *
      * @return void
      */
@@ -86,6 +86,4 @@ class TestCase extends OrchestraTestCase
             SkuServiceProvider::class,
         ];
     }
-
-
 }

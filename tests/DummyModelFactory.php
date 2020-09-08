@@ -2,9 +2,7 @@
 
 namespace BinaryCats\Sku\Tests;
 
-use BinaryCats\Sku\Tests\DummyModel;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 
 class DummyModelFactory extends Factory
 {

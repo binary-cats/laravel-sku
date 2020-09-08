@@ -2,7 +2,6 @@
 
 namespace BinaryCats\Sku\Tests;
 
-use BinaryCats\Sku\Tests\DummyModelFactory;
 use Illuminate\Support\Str;
 
 class SkuTest extends TestCase
@@ -43,7 +42,7 @@ class SkuTest extends TestCase
 
         $one->forceFill(
             [
-            'name' => Str::random(),
+                'name' => Str::random(),
             ]
         )->save();
 
@@ -65,7 +64,7 @@ class SkuTest extends TestCase
 
         $one->forceFill(
             [
-            'name' => Str::random(),
+                'name' => Str::random(),
             ]
         )->save();
 
