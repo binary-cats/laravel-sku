@@ -17,9 +17,11 @@ class SkuServiceProvider extends ServiceProvider
     public function boot()
     {
         if ($this->app->runningInConsole()) {
-            $this->publishes([
+            $this->publishes(
+                [
                 __DIR__.'/../config/laravel-sku.php' => config_path('laravel-sku.php'),
-            ], 'config');
+                ], 'config'
+            );
         }
         // Bind the Standard SKU Options
         $this->bindSkuOptions();

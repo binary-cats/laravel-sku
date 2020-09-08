@@ -65,9 +65,9 @@ class SkuGenerator implements Jsonable, Renderable
     /**
      * Make the SKU.
      *
-     * @param  string  $source
-     * @param  string  $separator
-     * @param  bool $unique
+     * @param  string $source
+     * @param  string $separator
+     * @param  bool   $unique
      * @return string
      */
     protected function makeSku(string $source, string $separator, bool $unique = false): string
@@ -113,7 +113,7 @@ class SkuGenerator implements Jsonable, Renderable
     /**
      * Convert the object to its JSON representation.
      *
-     * @param  int  $options
+     * @param  int $options
      * @return string
      */
     public function toJson($options = 0)
