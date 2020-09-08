@@ -3,8 +3,8 @@
 namespace BinaryCats\Sku\Tests;
 
 use BinaryCats\Sku\HasSku;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class DummyModel extends Model
 {
