@@ -12,7 +12,7 @@ return [
     */
     'default' => [
         /*
-         * SKU is based on a specific field of a model
+         * SKU is based on a specific field of a model, if the field does not exist on the model then use source field as a string
          *
          */
         'source' => 'name',

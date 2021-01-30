@@ -56,8 +56,8 @@ class SkuGenerator implements Jsonable, Renderable
     {
         // fetch the source fields
         $source = $this->options->source;
-        // Fetch fields from model, skip empty
-        $fields = array_filter($this->model->only($source));
+        // Fetch fields from the model, if empty, default to source field on config as a string
+        $fields = empty(array_filter($this->model->only($source))) ? $this->options->source : array_filter($this->model->only($source));
         // Impode with a separator
         return implode($this->options->separator, $fields);
     }
