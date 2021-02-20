@@ -49,8 +49,7 @@ class SkuServiceProvider extends ServiceProvider
      */
     protected function bindSkuGenerator()
     {
-        $this->app->bind(SkuGenerator::class, function($app, array $paramters) {
-
+        $this->app->bind(SkuGenerator::class, function ($app, array $paramters) {
             $generator = $app['config']->get('laravel-sku.generator');
 
             return new $generator(head($paramters));
