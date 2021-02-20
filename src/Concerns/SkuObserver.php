@@ -46,7 +46,7 @@ class SkuObserver
     }
 
     /**
-     * Make the SKUGenerator
+     * Make the SKUGenerator.
      *
      * @return \BinaryCats\Sku\Contracts\SkuGenerator
      */
