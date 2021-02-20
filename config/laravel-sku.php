@@ -54,6 +54,7 @@ return [
     |--------------------------------------------------------------------------
     |
     | Define your own generator if needed.
+    | It must implement \BinaryCats\Sku\Contracts\SkuGenerator
     |
     */
     'generator' => \BinaryCats\Sku\Concerns\SkuGenerator::class,

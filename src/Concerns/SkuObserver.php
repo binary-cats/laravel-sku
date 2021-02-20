@@ -2,6 +2,7 @@
 
 namespace BinaryCats\Sku\Concerns;
 
+use BinaryCats\Sku\Contracts\SkuGenerator;
 use Illuminate\Database\Eloquent\Model;
 
 class SkuObserver
@@ -18,7 +19,7 @@ class SkuObserver
         $field = $model->skuOption('field');
         // Set the value
         if ($model->skuOption('generateOnCreate')) {
-            $model->setAttribute($field, (string) new SkuGenerator($model));
+            $model->setAttribute($field, (string) $this->generator($model));
         }
     }
 
@@ -40,7 +41,17 @@ class SkuObserver
         $source = $model->skuOption('source');
         // if we are requested to generate and those fields are dirty
         if ($model->skuOption('generateOnUpdate') and $model->isDirty($source)) {
-            $model->setAttribute($field, (string) new SkuGenerator($model));
+            $model->setAttribute($field, (string) $this->generator($model));
         }
+    }
+
+    /**
+     * Make the SKUGenerator.
+     *
+     * @return \BinaryCats\Sku\Contracts\SkuGenerator
+     */
+    protected function generator(Model $model): SkuGenerator
+    {
+        return resolve(SkuGenerator::class, ['model' => $model]);
     }
 }

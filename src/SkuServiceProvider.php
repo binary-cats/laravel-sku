@@ -4,6 +4,7 @@ namespace BinaryCats\Sku;
 
 use BinaryCats\Sku\Concerns\SkuMacro;
 use BinaryCats\Sku\Concerns\SkuOptions;
+use BinaryCats\Sku\Contracts\SkuGenerator;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 
@@ -23,6 +24,8 @@ class SkuServiceProvider extends ServiceProvider
                 ], 'config'
             );
         }
+        // Bind the Generator
+        $this->bindSkuGenerator();
         // Bind the Standard SKU Options
         $this->bindSkuOptions();
         // Extend Str with a sku() method
@@ -37,6 +40,20 @@ class SkuServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(__DIR__.'/../config/laravel-sku.php', 'laravel-sku');
+    }
+
+    /**
+     * Bind the SKU Generator.
+     *
+     * @return void
+     */
+    protected function bindSkuGenerator()
+    {
+        $this->app->bind(SkuGenerator::class, function ($app, array $paramters) {
+            $generator = $app['config']->get('laravel-sku.generator');
+
+            return new $generator(head($paramters));
+        });
     }
 
     /**
@@ -62,6 +79,7 @@ class SkuServiceProvider extends ServiceProvider
     public function provides()
     {
         return [
+            SkuGenerator::class,
             SkuOptions::class,
         ];
     }
