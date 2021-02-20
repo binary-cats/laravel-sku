@@ -2,9 +2,9 @@
 
 namespace BinaryCats\Sku;
 
-use BinaryCats\Sku\Contracts\SkuGenerator;
 use BinaryCats\Sku\Concerns\SkuMacro;
 use BinaryCats\Sku\Concerns\SkuOptions;
+use BinaryCats\Sku\Contracts\SkuGenerator;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 
