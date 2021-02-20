@@ -1,6 +1,6 @@
 <?php
 
-namespace BinaryCats\Sku\Concerns\SkuGenerator;
+namespace BinaryCats\Sku\Concerns;
 
 use BinaryCats\Sku\Contracts\SkuGenerator as SkuGeneratorContract;
 use Illuminate\Contracts\Support\Jsonable;
