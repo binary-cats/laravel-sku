@@ -144,9 +144,54 @@ class Product extends Model
 }
 ```
 
+### Custom Generator
+
+Assuming you want some extra logic, like having a default value, or defining prefix for an SKU,
+you can implement your own SkuGenerator. It is easiest to extend the base class, but you are free to explore any which way.
+
+First, create a custom class:
+
+```php
+
+namespace App\Components\SkuGenerator;
+
+use BinaryCats\Sku\Concerns\SkuGenerator;
+
+class CustomSkuGenerator extends SkuGenerator
+{
+    /**
+     * Get the source fields for the SKU.
+     *
+     * @return string
+     */
+    protected function getSourceString(): string
+    {
+        // fetch the source fields
+        $source = $this->options->source;
+        // Fetch fields from model, skip empty
+        $fields = array_filter($this->model->only($source));
+        // Fetch fields from the model, if empty, use custom logic to resolve
+        if (empty($fields)) {
+            return 'some-random-value-logic';
+        }
+        // Impode with a separator
+        return implode($this->options->separator, $fields);
+    }
+}
+```
+
+and then update `generator` config value:
+
+```php
+    'generator' => \App\Components\SkuGenerator\CustomSkuGenerator::class,
+```
+
+You can also opt out to change implemetation completely;
+just remember that custom generator must implement `BinaryCats\Sku\Contracts\SkuGenerator`.
+
 ### About SKUs
 
-[Stock Keeping Unit](https://en.wikipedia.org/wiki/Stock_keeping_unit) allows you to set a  unique identifier or code that refers to the particular stock keeping unit.
+[Stock Keeping Unit](https://en.wikipedia.org/wiki/Stock_keeping_unit) allows you to set a unique identifier or code that refers to the particular stock keeping unit.
 
 ## Changelog
 

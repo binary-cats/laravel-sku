@@ -1,13 +1,14 @@
 <?php
 
-namespace BinaryCats\Sku\Concerns;
+namespace BinaryCats\Sku\Concerns\SkuGenerator;
 
+use BinaryCats\Sku\Contracts\SkuGenerator as SkuGeneratorContract;
 use Illuminate\Contracts\Support\Jsonable;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
-class SkuGenerator implements Jsonable, Renderable
+class SkuGenerator implements Jsonable, Renderable, SkuGeneratorContract
 {
     /**
      * Model to generate SKUs from.
