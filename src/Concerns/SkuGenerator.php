@@ -13,21 +13,21 @@ class SkuGenerator implements Jsonable, Renderable, SkuGeneratorContract
     /**
      * Model to generate SKUs from.
      *
-     * @var Illuminate\Database\Eloquent\Model
+     * @var \Illuminate\Database\Eloquent\Model
      */
     protected $model;
 
     /**
      * Shortcut to the SkuOptions.
      *
-     * @var BinaryCats\Sku\Concerns\SkuOptions
+     * @var \BinaryCats\Sku\Concerns\SkuOptions
      */
     protected $options;
 
     /**
      * Create new SKU Generator.
      *
-     * @param Illuminate\Database\Eloquent\Model $model
+     * @param  \Illuminate\Database\Eloquent\Model  $model
      */
     public function __construct(Model $model)
     {
@@ -66,9 +66,9 @@ class SkuGenerator implements Jsonable, Renderable, SkuGeneratorContract
     /**
      * Make the SKU.
      *
-     * @param  string $source
-     * @param  string $separator
-     * @param  bool   $unique
+     * @param  string  $source
+     * @param  string  $separator
+     * @param  bool  $unique
      * @return string
      */
     protected function makeSku(string $source, string $separator, bool $unique = false): string
@@ -86,16 +86,13 @@ class SkuGenerator implements Jsonable, Renderable, SkuGeneratorContract
     /**
      * True if the value already exists in the DB.
      *
-     * @param  string $sku
+     * @param  string  $sku
      * @return bool
      */
     protected function exists(string $sku): bool
     {
-        // We need to exclude the current model
-        $key = $this->model->getKey();
-        // Evaluate the model for SKU presence
         return $this->model
-            ->where($this->model->getKeyName(), '!=', $key)
+            ->whereKeyNot($this->model->getKey())
             ->where($this->options->field, $sku)
             ->withoutGlobalScopes()
             ->exists();
@@ -114,7 +111,7 @@ class SkuGenerator implements Jsonable, Renderable, SkuGeneratorContract
     /**
      * Convert the object to its JSON representation.
      *
-     * @param  int $options
+     * @param  int  $options
      * @return string
      */
     public function toJson($options = 0)
