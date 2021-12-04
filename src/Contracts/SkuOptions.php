@@ -14,7 +14,7 @@ interface SkuOptions
     /**
      * Set the source field.
      *
-     * @param  mixed $field
+     * @param  mixed  $field
      * @return $this
      */
     public function from($field): self;
@@ -22,7 +22,7 @@ interface SkuOptions
     /**
      * Set the destination field.
      *
-     * @param  mixed $field
+     * @param  mixed  $field
      * @return $this
      */
     public function target(string $field): self;
@@ -30,7 +30,7 @@ interface SkuOptions
     /**
      * Set unique flag.
      *
-     * @param  boll $value
+     * @param  boll  $value
      * @return $this
      */
     public function forceUnique(bool $value): self;
@@ -38,7 +38,7 @@ interface SkuOptions
     /**
      * Set the separator value.
      *
-     * @param  string $separator
+     * @param  string  $separator
      * @return $this
      */
     public function allowDuplicates(): self;
@@ -46,7 +46,7 @@ interface SkuOptions
     /**
      * Set the separator value.
      *
-     * @param  string $separator
+     * @param  string  $separator
      * @return $this
      */
     public function using(string $separator): self;
@@ -54,7 +54,7 @@ interface SkuOptions
     /**
      * Set the generateOnCreate value.
      *
-     * @param  bool $value
+     * @param  bool  $value
      * @return $this
      */
     public function generateOnCreate(bool $value): self;
@@ -62,7 +62,7 @@ interface SkuOptions
     /**
      * Set the generateOnUpdate value.
      *
-     * @param  bool $value
+     * @param  bool  $value
      * @return $this
      */
     public function refreshOnUpdate(bool $value): self;

@@ -27,7 +27,7 @@ class SkuGenerator implements Jsonable, Renderable, SkuGeneratorContract
     /**
      * Create new SKU Generator.
      *
-     * @param \Illuminate\Database\Eloquent\Model $model
+     * @param  \Illuminate\Database\Eloquent\Model  $model
      */
     public function __construct(Model $model)
     {
@@ -66,9 +66,9 @@ class SkuGenerator implements Jsonable, Renderable, SkuGeneratorContract
     /**
      * Make the SKU.
      *
-     * @param  string $source
-     * @param  string $separator
-     * @param  bool   $unique
+     * @param  string  $source
+     * @param  string  $separator
+     * @param  bool  $unique
      * @return string
      */
     protected function makeSku(string $source, string $separator, bool $unique = false): string
@@ -86,7 +86,7 @@ class SkuGenerator implements Jsonable, Renderable, SkuGeneratorContract
     /**
      * True if the value already exists in the DB.
      *
-     * @param  string $sku
+     * @param  string  $sku
      * @return bool
      */
     protected function exists(string $sku): bool
@@ -111,7 +111,7 @@ class SkuGenerator implements Jsonable, Renderable, SkuGeneratorContract
     /**
      * Convert the object to its JSON representation.
      *
-     * @param  int $options
+     * @param  int  $options
      * @return string
      */
     public function toJson($options = 0)

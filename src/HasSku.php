@@ -30,7 +30,7 @@ trait HasSku
     /**
      * Fetch SKU option.
      *
-     * @param  string $key
+     * @param  string  $key
      * @return mixed
      */
     public function skuOption(string $key)
@@ -41,7 +41,7 @@ trait HasSku
     /**
      * Unless the field is called something else, we can safely get the value from the attribute.
      *
-     * @param  mixed $value
+     * @param  mixed  $value
      * @return string
      */
     public function getSkuAttribute($value)
