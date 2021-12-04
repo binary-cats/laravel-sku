@@ -24,7 +24,7 @@ class TestCase extends OrchestraTestCase
     /**
      * Set up the environment.
      *
-     * @param \Illuminate\Foundation\Application $app
+     * @param  \Illuminate\Foundation\Application  $app
      */
     protected function getEnvironmentSetUp($app)
     {
@@ -46,7 +46,8 @@ class TestCase extends OrchestraTestCase
     protected function disableExceptionHandling()
     {
         $this->app->instance(
-            ExceptionHandler::class, new class extends Handler {
+            ExceptionHandler::class, new class extends Handler
+            {
                 public function __construct()
                 {
                 }
@@ -76,8 +77,7 @@ class TestCase extends OrchestraTestCase
     }
 
     /**
-     * @param \Illuminate\Foundation\Application $app
-     *
+     * @param  \Illuminate\Foundation\Application  $app
      * @return array
      */
     protected function getPackageProviders($app)

@@ -10,8 +10,8 @@ class SkuMacro
     /**
      * Sku generator mixin.
      *
-     * @param  string $source
-     * @param  string $separator
+     * @param  string  $source
+     * @param  string  $separator
      * @return Closure
      */
     public function sku(): Closure

@@ -77,7 +77,7 @@ class SkuOptions implements SkuOptionsContract
     /**
      * Set the source field.
      *
-     * @param  mixed $field
+     * @param  mixed  $field
      * @return $this
      */
     public function from($field): SkuOptionsContract
@@ -90,7 +90,7 @@ class SkuOptions implements SkuOptionsContract
     /**
      * Set the destination field.
      *
-     * @param  mixed $field
+     * @param  mixed  $field
      * @return $this
      */
     public function target(string $field): SkuOptionsContract
@@ -103,7 +103,7 @@ class SkuOptions implements SkuOptionsContract
     /**
      * Set unique flag.
      *
-     * @param  boll $value
+     * @param  boll  $value
      * @return $this
      */
     public function forceUnique(bool $value): SkuOptionsContract
@@ -116,7 +116,7 @@ class SkuOptions implements SkuOptionsContract
     /**
      * Set the separator value.
      *
-     * @param  string $separator
+     * @param  string  $separator
      * @return $this
      */
     public function allowDuplicates(): SkuOptionsContract
@@ -127,7 +127,7 @@ class SkuOptions implements SkuOptionsContract
     /**
      * Set the separator value.
      *
-     * @param  string $separator
+     * @param  string  $separator
      * @return $this
      */
     public function using(string $separator): SkuOptionsContract
@@ -140,7 +140,7 @@ class SkuOptions implements SkuOptionsContract
     /**
      * Set the generateOnCreate value.
      *
-     * @param  bool $value
+     * @param  bool  $value
      * @return $this
      */
     public function generateOnCreate(bool $value): SkuOptionsContract
@@ -153,7 +153,7 @@ class SkuOptions implements SkuOptionsContract
     /**
      * Set the generateOnUpdate value.
      *
-     * @param  bool $value
+     * @param  bool  $value
      * @return $this
      */
     public function refreshOnUpdate(bool $value): SkuOptionsContract
@@ -166,8 +166,9 @@ class SkuOptions implements SkuOptionsContract
     /**
      * Access protected properties.
      *
-     * @param  string $property
+     * @param  string  $property
      * @return mixed
+     *
      * @throws BadSkuArgument
      */
     public function __get($property)
