@@ -6,10 +6,8 @@ use Illuminate\Support\Str;
 
 class CustomGeneratorTest extends TestCase
 {
-    /**
-     * @test
-     */
-    public function is_can_use_custom_generator()
+    /** @test */
+    public function it_can_use_custom_generator()
     {
         config()->set('laravel-sku.default.generate_on_create', true);
 
