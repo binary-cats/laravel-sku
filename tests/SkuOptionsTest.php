@@ -2,8 +2,8 @@
 
 namespace BinaryCats\Sku\Tests;
 
-use BinaryCats\Sku\Contracts\SkuOptions as SkuOptionsContract;
 use BinaryCats\Sku\Concerns\SkuOptions;
+use BinaryCats\Sku\Contracts\SkuOptions as SkuOptionsContract;
 use BinaryCats\Sku\Exceptions\SkuException;
 
 class SkuOptionsTest extends TestCase
