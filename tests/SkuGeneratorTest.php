@@ -3,9 +3,6 @@
 namespace BinaryCats\Sku\Tests;
 
 use BinaryCats\Sku\Concerns\SkuGenerator;
-use BinaryCats\Sku\Concerns\SkuMacro;
-use Illuminate\Support\Str;
-use Mockery\MockInterface;
 
 class SkuGeneratorTest extends TestCase
 {
