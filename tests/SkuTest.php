@@ -6,9 +6,7 @@ use Illuminate\Support\Str;
 
 class SkuTest extends TestCase
 {
-    /**
-     * @test
-     */
+    /** @test */
     public function it_will_have_sku_on_create()
     {
         $one = DummyModelFactory::new()->create();
@@ -17,9 +15,7 @@ class SkuTest extends TestCase
         $this->assertIsString($one->sku);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_will_miss_sku_on_create_if_configured()
     {
         config()->set('laravel-sku.default.generate_on_create', false);
@@ -31,29 +27,21 @@ class SkuTest extends TestCase
         $this->assertNull($value);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_will_reset_sku_on_update()
     {
         $one = DummyModelFactory::new()->create();
 
         $sku = $one->sku;
 
-        $one->forceFill(
-            [
-                'name' => Str::random(),
-            ]
-        )->save();
+        $one->forceFill(['name' => Str::random()])->save();
 
         $this->assertFalse(Str::is($one->sku, $sku));
         $this->assertIsString($sku);
         $this->assertIsString($one->sku);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_will_preserve_sku_on_update_when_configured()
     {
         config()->set('laravel-sku.default.generate_on_update', false);
@@ -62,11 +50,7 @@ class SkuTest extends TestCase
 
         $sku = $one->sku;
 
-        $one->forceFill(
-            [
-                'name' => Str::random(),
-            ]
-        )->save();
+        $one->forceFill(['name' => Str::random()])->save();
 
         $this->assertTrue(Str::is($one->sku, $sku));
         $this->assertIsString($sku);
