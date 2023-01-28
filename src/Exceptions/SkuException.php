@@ -4,12 +4,12 @@ namespace BinaryCats\Sku\Exceptions;
 
 use Exception;
 
-class SkuException extends Exception
+class SkuException extends \Exception
 {
     /**
      * Invalid Argument.
      *
-     * @param  string  $message
+     * @param string $message
      * @return [type]
      */
     public static function invalidArgument(string $message): self
@@ -20,7 +20,7 @@ class SkuException extends Exception
     /**
      * Make the Exception renderable.
      *
-     * @param  Illuminate\Http\Request  $request
+     * @param Illuminate\Http\Request $request
      * @return Illuminate\Http\Response
      */
     public function render($request)
