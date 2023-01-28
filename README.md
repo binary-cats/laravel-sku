@@ -1,6 +1,6 @@
 # Handle SKUs for your models
 
-Generate unique SKUs when saving any Eloquent model with support for Laravel 5.6, Laravel 6 and above.
+Generate unique SKUs when saving any Eloquent model.
 
 ```php
 $model = new EloquentModel();
