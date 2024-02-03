@@ -20,7 +20,7 @@ class SkuServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->publishes(
                 [
-                    __DIR__ . '/../config/laravel-sku.php' => config_path('laravel-sku.php'),
+                    __DIR__.'/../config/laravel-sku.php' => config_path('laravel-sku.php'),
                 ], 'config'
             );
         }
@@ -39,7 +39,7 @@ class SkuServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/laravel-sku.php', 'laravel-sku');
+        $this->mergeConfigFrom(__DIR__.'/../config/laravel-sku.php', 'laravel-sku');
     }
 
     /**
