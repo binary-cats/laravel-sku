@@ -1,4 +1,4 @@
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/support-ukraine.svg?t=1" />](https://supportukrainenow.org)
+[<img src="./art/support-ukraine.svg" />](https://supportukrainenow.org)
 
 # Handle SKUs for your models
 
@@ -15,6 +15,10 @@ echo $model->sku; // ouputs "LAR-80564492"
 Package will add a new method to Laravel's `Illuminate\Support\Str::sku()` class to generate an SKU for you.
 
 ## Installation
+
+Mimimum requirements:
+- Laravel 12
+- PHP8.2
 
 You can install the package via composer:
 
