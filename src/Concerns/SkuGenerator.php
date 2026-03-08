@@ -47,6 +47,7 @@ class SkuGenerator implements Jsonable, Renderable, SkuGeneratorContract
         $source = $this->options->source;
         // Fetch fields from model, skip empty
         $fields = array_filter($this->model->only($source));
+
         // Implode with a separator
         return implode($this->options->separator, $fields);
     }
