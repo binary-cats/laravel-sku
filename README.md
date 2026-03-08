@@ -9,21 +9,29 @@ $model = new EloquentModel();
 $model->name = 'Laravel is Awesome';
 $model->save();
 
-echo $model->sku; // ouputs "LAR-80564492"
+echo $model->sku; // outputs "LAR-80564492"
 ```
 
 Package will add a new method to Laravel's `Illuminate\Support\Str::sku()` class to generate an SKU for you.
 
 ## Installation
 
-Mimimum requirements:
-- Laravel 12
-- PHP8.2
+Minimum requirements:
+- Laravel 12+
+- PHP 8.2+
 
 You can install the package via composer:
 
 ```bash
 composer require binary-cats/laravel-sku
+```
+
+[Upgrading from previous versions](./UPGRADING.md) should be minimal. However, if you extend or replace the base classes, please make sure to review the changes.
+
+For older versions of Laravel, use version 0.8:
+
+```bash
+composer require binary-cats/laravel-sku:"^0.8"
 ```
 
 The service provider will automatically register itself.
@@ -119,7 +127,7 @@ Behind the scenes this will register an observer for the `sku` field, which will
 
 ## Advanced usage
 
-If you want to change settings for a specific model, you can overload the `skuOptions`() method:
+If you want to change settings for a specific model, you can overload the `skuOptions()` method:
 
 ```php
 namespace App;
@@ -134,10 +142,8 @@ class Product extends Model
 
     /**
      * Get the options for generating the Sku.
-     *
-     * @return BinaryCats\Sku\SkuOptions
      */
-    public function skuOptions() : SkuOptions
+    public function skuOptions(): SkuOptions
     {
         return SkuOptions::make()
             ->from(['label', 'another_field'])
@@ -153,7 +159,7 @@ class Product extends Model
 ### Custom Generator
 
 Assuming you want some extra logic, like having a default value, or defining prefix for an SKU,
-you can implement your own SkuGenerator. It is easiest to extend the base class, but you are free to explore any which way.
+you can implement your own `SkuGenerator`. It is easiest to extend the base class, but you are free to explore any which way.
 
 First, create a custom class:
 
@@ -180,7 +186,7 @@ class CustomSkuGenerator extends SkuGenerator
         if (empty($fields)) {
             return 'some-random-value-logic';
         }
-        // Impode with a separator
+        // Implode with a separator
         return implode($this->options->separator, $fields);
     }
 }
@@ -192,22 +198,22 @@ and then update `generator` config value:
     'generator' => \App\Components\SkuGenerator\CustomSkuGenerator::class,
 ```
 
-You can also opt out to change implemetation completely;
+You can also opt out to change implementation completely; 
 just remember that custom generator must implement `BinaryCats\Sku\Contracts\SkuGenerator`.
 
 ### About SKUs
 
 [Stock Keeping Unit](https://en.wikipedia.org/wiki/Stock_keeping_unit) allows you to set a unique identifier or code that refers to the particular stock keeping unit.
 
-## Changelog
-
-Please see [CHANGELOG](CHANGELOG.md) for more information about what has changed recently.
-
 ## Testing
 
 ```bash
 composer test
 ```
+
+## Changelog
+
+Please see [CHANGELOG](CHANGELOG.md) for more information about what has changed recently.
 
 ## Contributing
 
@@ -228,7 +234,7 @@ You're free to use this package, but if it makes it to your production environme
 
 ## Support us
 
-Binary Cats is a webdesign agency based in Illinois, US.
+[Binary Cats](https://binarycats.dev) is a webdesign agency based in Illinois, US.
 
 ## License
 

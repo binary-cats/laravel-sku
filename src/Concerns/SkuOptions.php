@@ -132,7 +132,7 @@ class SkuOptions implements SkuOptionsContract
 
     /**
      * Access protected properties.
-     * 
+     *
      * @throws BadSkuArgument
      */
     public function __get($property)
