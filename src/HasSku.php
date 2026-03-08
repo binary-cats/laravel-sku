@@ -18,7 +18,7 @@ trait HasSku
     public static function bootHasSku(): void
     {
         static::whenBooted(
-            fn() => static::observe(SkuObserver::class)
+            fn () => static::observe(SkuObserver::class)
         );
     }
 
