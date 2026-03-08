@@ -5,6 +5,9 @@ namespace BinaryCats\Sku;
 use BinaryCats\Sku\Concerns\SkuObserver;
 use BinaryCats\Sku\Concerns\SkuOptions;
 
+/**
+ * @mixin \Illuminate\Database\Eloquent\Model
+ */
 trait HasSku
 {
     /**
@@ -12,9 +15,11 @@ trait HasSku
      *
      * @return void
      */
-    public static function bootHasSku()
+    public static function bootHasSku(): void
     {
-        static::observe(SkuObserver::class);
+        static::whenBooted(
+            fn() => static::observe(SkuObserver::class)
+        );
     }
 
     /**
@@ -29,22 +34,16 @@ trait HasSku
 
     /**
      * Fetch SKU option.
-     *
-     * @param  string  $key
-     * @return mixed
      */
-    public function skuOption(string $key)
+    public function skuOption(string $key): mixed
     {
         return $this->skuOptions()->{$key};
     }
 
     /**
      * Unless the field is called something else, we can safely get the value from the attribute.
-     *
-     * @param  mixed  $value
-     * @return string
      */
-    public function getSkuAttribute($value)
+    public function getSkuAttribute($value): string
     {
         return (string) $value ?: $this->getAttribute($this->skuOption('field'));
     }

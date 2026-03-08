@@ -11,45 +11,33 @@ class SkuOptions implements SkuOptionsContract
 {
     /**
      * Set the field which is a base fo rthe SKU.
-     *
-     * @var array
      */
-    protected $source;
+    protected array $source;
 
     /**
      * Name of the model to store the SKU.
-     *
-     * @var string
      */
-    protected $field;
+    protected string $field;
 
     /**
      * True if SKU is to be unique.
-     *
-     * @var bool
      */
-    protected $unique;
+    protected bool $unique;
 
     /**
      * Separator value.
-     *
-     * @var string
      */
-    protected $separator;
+    protected string $separator;
 
     /**
      * True if SKU to be generated on creating.
-     *
-     * @var bool
      */
-    protected $generateOnCreate;
+    protected bool $generateOnCreate;
 
     /**
      * True if SKU needs to be re-generated on update.
-     *
-     * @var bool
      */
-    protected $generateOnUpdate;
+    protected bool $generateOnUpdate;
 
     /**
      * Create new class.
@@ -76,11 +64,8 @@ class SkuOptions implements SkuOptionsContract
 
     /**
      * Set the source field.
-     *
-     * @param  mixed  $field
-     * @return $this
      */
-    public function from($field): SkuOptionsContract
+    public function from(array|string $field): SkuOptionsContract
     {
         $this->source = Arr::wrap($field);
 
@@ -89,9 +74,6 @@ class SkuOptions implements SkuOptionsContract
 
     /**
      * Set the destination field.
-     *
-     * @param  mixed  $field
-     * @return $this
      */
     public function target(string $field): SkuOptionsContract
     {
@@ -102,9 +84,6 @@ class SkuOptions implements SkuOptionsContract
 
     /**
      * Set unique flag.
-     *
-     * @param  boll  $value
-     * @return $this
      */
     public function forceUnique(bool $value): SkuOptionsContract
     {
@@ -115,9 +94,6 @@ class SkuOptions implements SkuOptionsContract
 
     /**
      * Set the separator value.
-     *
-     * @param  string  $separator
-     * @return $this
      */
     public function allowDuplicates(): SkuOptionsContract
     {
@@ -126,9 +102,6 @@ class SkuOptions implements SkuOptionsContract
 
     /**
      * Set the separator value.
-     *
-     * @param  string  $separator
-     * @return $this
      */
     public function using(string $separator): SkuOptionsContract
     {
@@ -139,9 +112,6 @@ class SkuOptions implements SkuOptionsContract
 
     /**
      * Set the generateOnCreate value.
-     *
-     * @param  bool  $value
-     * @return $this
      */
     public function generateOnCreate(bool $value): SkuOptionsContract
     {
@@ -152,9 +122,6 @@ class SkuOptions implements SkuOptionsContract
 
     /**
      * Set the generateOnUpdate value.
-     *
-     * @param  bool  $value
-     * @return $this
      */
     public function refreshOnUpdate(bool $value): SkuOptionsContract
     {
@@ -165,10 +132,7 @@ class SkuOptions implements SkuOptionsContract
 
     /**
      * Access protected properties.
-     *
-     * @param  string  $property
-     * @return mixed
-     *
+     * 
      * @throws BadSkuArgument
      */
     public function __get($property)

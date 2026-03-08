@@ -9,9 +9,6 @@ class SkuObserver
 {
     /**
      * Handle model "creating" event.
-     *
-     * @param  \Illuminate\Database\Eloquent\Model  $model
-     * @return void
      */
     public function creating(Model $model): void
     {
@@ -25,9 +22,6 @@ class SkuObserver
 
     /**
      * Handle model "updating" event.
-     *
-     * @param  \Illuminate\Database\Eloquent\Model  $model
-     * @return void
      */
     public function updating(Model $model): void
     {
@@ -47,8 +41,6 @@ class SkuObserver
 
     /**
      * Make the SKUGenerator.
-     *
-     * @return \BinaryCats\Sku\Contracts\SkuGenerator
      */
     protected function generator(Model $model): SkuGenerator
     {

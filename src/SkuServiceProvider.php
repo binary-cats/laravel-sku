@@ -12,10 +12,8 @@ class SkuServiceProvider extends ServiceProvider
 {
     /**
      * Boot application services.
-     *
-     * @return void
      */
-    public function boot()
+    public function boot(): void
     {
         if ($this->app->runningInConsole()) {
             $this->publishes(
@@ -34,20 +32,16 @@ class SkuServiceProvider extends ServiceProvider
 
     /**
      * Register application services.
-     *
-     * @return void
      */
-    public function register()
+    public function register(): void
     {
         $this->mergeConfigFrom(__DIR__.'/../config/laravel-sku.php', 'laravel-sku');
     }
 
     /**
      * Bind the SKU Generator.
-     *
-     * @return void
      */
-    protected function bindSkuGenerator()
+    protected function bindSkuGenerator(): void
     {
         $this->app->bind(SkuGenerator::class, function ($app, array $paramters) {
             $generator = $app['config']->get('laravel-sku.generator');
@@ -58,10 +52,8 @@ class SkuServiceProvider extends ServiceProvider
 
     /**
      * Bind the SKU options.
-     *
-     * @return void
      */
-    protected function bindSkuOptions()
+    protected function bindSkuOptions(): void
     {
         $this->app->bind(
             SkuOptions::class,
@@ -73,10 +65,8 @@ class SkuServiceProvider extends ServiceProvider
 
     /**
      * Get the services provided by the provider.
-     *
-     * @return array
      */
-    public function provides()
+    public function provides(): array
     {
         return [
             SkuGenerator::class,

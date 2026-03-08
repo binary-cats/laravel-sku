@@ -5,27 +5,28 @@ namespace BinaryCats\Sku\Tests;
 use BinaryCats\Sku\Concerns\SkuOptions;
 use BinaryCats\Sku\Contracts\SkuOptions as SkuOptionsContract;
 use BinaryCats\Sku\Exceptions\SkuException;
+use PHPUnit\Framework\Attributes\Test;
 
 class SkuOptionsTest extends TestCase
 {
-    /** @test */
-    public function it_can_create_sku_options_statically()
+    #[Test]
+    public function it_can_create_sku_options_statically(): void
     {
         $options = SkuOptions::make();
 
         $this->assertInstanceOf(SkuOptionsContract::class, $options);
     }
 
-    /** @test */
-    public function it_will_throw_exception_on_missing_property()
+    #[Test]
+    public function it_will_throw_exception_on_missing_property(): void
     {
         $this->expectException(SkuException::class);
 
         SkuOptions::make()->garbage_property_that_doesnt_exist;
     }
 
-    /** @test */
-    public function it_can_set_properties_via_methods()
+    #[Test]
+    public function it_can_set_properties_via_methods(): void
     {
         $options = SkuOptions::make();
 
