@@ -7,11 +7,9 @@ use Illuminate\Support\Str;
 class SkuMacro
 {
     /**
-     * Sku generator mixin.
+     * Generate a SKU string from a given source.
      *
-     * @param  string  $source
-     * @param  string  $separator
-     * @return \Closure
+     * @return \Closure(string $source, string|null $separator = null): string
      */
     public function sku(): \Closure
     {

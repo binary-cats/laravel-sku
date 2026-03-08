@@ -13,17 +13,17 @@
         {
             "name": "Cyrill Kalita",
             "email": "cyrill.kalita@gmail.com",
-            "homepage": "https://github.com/binary-cats",
+            "homepage": "https://binarycats.dev",
             "role": "Developer"
         }
     ],
     "require": {
-        "php": "^7.2|^8.0",
-        "illuminate/support": "~5.6|^6.0|^7.0|^8.0|^9.0|^10.0|^11.0|^12.0"
+        "php": "^8.2",
+        "illuminate/support": "^12.0|^13.0"
     },
     "require-dev": {
-        "orchestra/testbench": "^3.6|^4.0|^5.0|^6.0|^7.0|^8.0|^10.0",
-        "phpunit/phpunit": "^7.0|^8.2|^9.0|^10.0|^11.5.3"
+        "orchestra/testbench": "^10.0|^11.0",
+        "phpunit/phpunit": "^11.5.3|^12.5.12"
     },
     "autoload": {
         "psr-4": {
@@ -40,10 +40,7 @@
         "binary-cats/laravel-mailgun-webhooks": "Handle Mailgun webhooks in your Laravel application"
     },
     "scripts": {
-        "test": "XDEBUG_MODE=coverage vendor/bin/phpunit --color=always",
-        "fix": [
-            "docker run --rm -v $(pwd):/data cytopia/php-cs-fixer --ansi --verbose --show-progress=dots fix"
-        ]
+        "test": "XDEBUG_MODE=coverage vendor/bin/phpunit --color=always"
     },
     "config": {
         "sort-packages": true

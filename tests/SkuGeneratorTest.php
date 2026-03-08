@@ -3,11 +3,12 @@
 namespace BinaryCats\Sku\Tests;
 
 use BinaryCats\Sku\Concerns\SkuGenerator;
+use PHPUnit\Framework\Attributes\Test;
 
 class SkuGeneratorTest extends TestCase
 {
-    /** @test */
-    public function it_will_convert_to_json()
+    #[Test]
+    public function it_will_convert_to_json(): void
     {
         $model = DummyModel::make();
 
